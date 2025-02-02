@@ -1,0 +1,140 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.toggle-buttons {
+  width: 360px;             
+  margin: 0 auto 2rem auto;  
+  display: flex;
+  justify-content: space-between;
+}
+
+.toggle-buttons button {
+  width: 160px;             
+  padding: 0.75rem 1.5rem;   
+  font-size: 1.1rem;         
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.toggle-buttons button.active,
+.toggle-buttons button:hover {
+  background-color: #808080;
+  color: #fff;
+}
+
+.form-section {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  margin-bottom: 20px;
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-family: 'Arial', sans-serif;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0d47a1;
+}
+
+.form-section.id-card-form {
+  width: 400px;
+  margin: 0 auto 20px auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.form-section.id-card-form .form-group input {
+  width: 100%;
+}
+
+.form-section.id-card-form .submit-btn {
+  width: 100%;
+}
+
+.download-container {
+  margin-top: 1rem; 
+}
+
+.status-message {
+  width: 100%;
+  max-width: 450px;  
+  margin-top: 2.5rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: red;
+  background: transparent;
+  text-align: center;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+  .form-section {
+    padding: 1.5rem;
+    width: 90%;
+  }
+}
+

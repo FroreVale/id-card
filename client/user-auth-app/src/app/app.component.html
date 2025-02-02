@@ -1,0 +1,136 @@
+<main class="auth-container">
+
+  <!-- ID Card Form -->
+  <section class="form-section id-card-form" *ngIf="showIdCardDetails">
+    <h2>ID Card Details</h2>
+    <form #idCardForm="ngForm" (ngSubmit)="onIDCardSubmit(idCardForm)">
+      <div class="form-group">
+        <label for="admission-no">Admission No</label>
+        <input 
+          type="text" 
+          id="admission-no" 
+          name="admissionNo" 
+          placeholder="Enter Admission No" 
+          [(ngModel)]="idCardDetails.admissionNo" 
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="parent-name">Parent Name</label>
+        <input 
+          type="text" 
+          id="parent-name" 
+          name="parentName" 
+          placeholder="Enter Parent Name" 
+          [(ngModel)]="idCardDetails.parentName" 
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone-no">Phone No</label>
+        <input 
+          type="text" 
+          id="phone-no" 
+          name="phoneNo" 
+          placeholder="Enter Phone No" 
+          [(ngModel)]="idCardDetails.phoneNo" 
+          required
+        />
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Submit
+      </button>
+    </form>
+ 
+    <div class="status-message" *ngIf="message">
+      {{ message }}
+    </div>
+ 
+    <div *ngIf="downloadUrl" class="download-container">
+      <a [href]="downloadUrl" download="StudentID.pdf">
+        <button type="button" class="submit-btn">Download PDF</button>
+      </a>
+    </div>
+  </section>
+
+
+  <div *ngIf="!showIdCardDetails">
+
+    <div class="toggle-buttons">
+      <button (click)="toggleForm('login')" [class.active]="activeForm === 'login'">
+        Login
+      </button>
+      <button (click)="toggleForm('register')" [class.active]="activeForm === 'register'">
+        Register
+      </button>
+    </div>
+
+    <!-- Login Form -->
+    <section class="form-section login-form" *ngIf="activeForm === 'login'">
+      <h2>Login</h2>
+      <form (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <label for="login-username">Username</label>
+          <input
+            type="text"
+            id="login-username"
+            name="username"
+            placeholder="Enter your username"
+            [(ngModel)]="loginData.username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            placeholder="Enter your password"
+            [(ngModel)]="loginData.password"
+            required
+          />
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+    </section>
+
+    <!-- Register Form -->
+    <section class="form-section register-form" *ngIf="activeForm === 'register'">
+      <h2>Register</h2>
+      <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+        <div class="form-group">
+          <label for="register-username">Username</label>
+          <input
+            type="text"
+            id="register-username"
+            name="username"
+            placeholder="Choose a username"
+            [(ngModel)]="registerData.username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <input
+            type="password"
+            id="register-password"
+            name="password"
+            placeholder="Choose a password"
+            [(ngModel)]="registerData.password"
+            required
+          />
+        </div>
+        <button type="submit" class="submit-btn">Register</button>
+      </form>
+    </section>
+
+
+    <div class="status-message" *ngIf="message">
+      {{ message }}
+    </div>
+  </div>
+</main>
+
+<router-outlet></router-outlet>
